@@ -7,3 +7,4 @@ Sphinx==1.1.3
 Pillow
 djangorestframework
 django-athumb
+django-bootstrap-form

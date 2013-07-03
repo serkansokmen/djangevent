@@ -214,6 +214,7 @@ THIRD_PARTY_APPS = (
     'rest_framework',
 
     'athumb',
+    'bootstrapform',
 )
 
 LOCAL_APPS = (

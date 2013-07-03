@@ -1,0 +1,6 @@
+{
+    "Python": {
+        "python": "/Users/serkansokmen/.virtualenvs/djangevent/bin/python",
+        "pythonExtraPaths": ["/Users/serkansokmen/.virtualenvs/djangevent/lib/python2.7/site-packages"]
+    }
+}

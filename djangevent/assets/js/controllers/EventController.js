@@ -7,7 +7,7 @@ eventsApp.controller("EventController", function EventController($scope, $http) 
     $scope.sortOrder = 'name';
 
     $scope.init = function () {
-        $http({method: "GET", url: "/events"}).
+        $http({method: "GET", url: "/events/api/"}).
         success(function (data, status, header, config) {
             $scope.events = data;
             if (data.length > 0) {

@@ -19,6 +19,11 @@
         .gradient { filter: none; }
     </style>
     <![endif]-->
+    <style>
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak , .x-ng-cloak {
+            display: none;
+        }
+    </style>
     {% endcompress css %}
     {% endblock css %}
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
@@ -27,7 +32,22 @@
     <![endif]-->
 </head>
 <body>
-    {% block content %}{% endblock content %}
+
+    <div class="container">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <ul class="nav">
+                    <li>
+                        <a href="{% url 'events' %}">Events</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'event_form' %}">New Event</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        {% block content %}{% endblock content %}
+    </div>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>

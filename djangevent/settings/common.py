@@ -212,6 +212,8 @@ THIRD_PARTY_APPS = (
 
     # Django REST Framework
     'rest_framework',
+
+    'athumb',
 )
 
 LOCAL_APPS = (

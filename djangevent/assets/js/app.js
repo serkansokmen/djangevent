@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-var eventsApp = angular.module('EventsApp', []);
+var eventsApp = angular.module('EventsApp', ['ngSanitize']);
 
 eventsApp.config(function ($interpolateProvider) {
   $interpolateProvider.startSymbol('{[{');

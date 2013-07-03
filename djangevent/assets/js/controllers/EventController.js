@@ -15,5 +15,16 @@ eventsApp.controller("EventController", function EventController($scope, $http) 
         .error(function (data, status, header, config) {
             console.log(data, status, header, config);
         });
+    };
+
+    $scope.setCurrentEvent = function(event) {
+        $scope.currentEvent = event;
     }
+
+    $scope.upVoteSession = function (session) {
+        session.voteCount++;
+    };
+    $scope.downVoteSession = function (session) {
+        session.voteCount--;
+    };
 });

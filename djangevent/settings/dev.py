@@ -43,6 +43,7 @@ CACHES = {
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
     }
 }
+MEDIA_CACHE_BUSTER = 'loremipsum'
 ########## END CACHE CONFIGURATION
 
 

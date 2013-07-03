@@ -4,6 +4,8 @@ eventsApp.controller("EventController", function EventController($scope, $http) 
     $scope.events = [];
     $scope.currentEvent = null;
 
+    $scope.sortOrder = 'name';
+
     $scope.init = function () {
         $http({method: "GET", url: "/events"}).
         success(function (data, status, header, config) {

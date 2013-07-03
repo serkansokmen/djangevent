@@ -7,6 +7,7 @@ class SessionSerializer(serializers.ModelSerializer):
     creator = serializers.RelatedField(source='creator')
     level = serializers.RelatedField(source='level')
     voteCount = serializers.RelatedField(source='vote_count')
+    duration = serializers.RelatedField(source='get_duration')
 
     class Meta:
         model = Session

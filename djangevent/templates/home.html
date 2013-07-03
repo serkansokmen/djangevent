@@ -39,7 +39,7 @@
 
             <div class="row-fluid">
                 <div class="span8">
-                    <div><strong>Date:</strong> {[{ currentEvent.date }]}</div>
+                    <div><strong>Date:</strong> {[{ currentEvent.date | date:'mediumDate' }]}</div>
                     <div><strong>Time:</strong> {[{ currentEvent.time }]}</div>
                 </div>
                 <div class="span4">
@@ -52,8 +52,20 @@
             </div>
             <hr>
             <h3>Sessions</h3>
+            Order by:
+            <select ng-model="sortOrder" class="input-medium">
+                <option selected value="name">Name</option>
+                <option value="-voteCount">Vote counts</option>
+            </select>
+            Show:
+            <select ng-model="query.level" class="input-medium">
+                <option selected value="">All</option>
+                <option value="Introductory">Introductory</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
+            </select>
             <ul class="thumbnails">
-                <li class="span4" ng-repeat="session in currentEvent.sessions">
+                <li class="span4" ng-repeat="session in currentEvent.sessions | orderBy:sortOrder | filter:query">
                     <h4 class="well-title">{[{ session.name }]}</h4>
                     <h6 style="margin-top:-10px;">{[{ session.creator }]}</h6>
                     <span>Duration: {[{ session.duration }]}</span> <br>

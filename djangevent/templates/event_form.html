@@ -4,13 +4,17 @@
 
 
 {% block content %}
-
-    {{ form|bootstrap }}
-
+    <form method="post" class="form-horizontal" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form|bootstrap }}
+        <div class="form-actions">
+            <button class="btn btn-primary" type="submit">Save</button>
+        </div>
+    </form>
 {% endblock content %}
 
 {% block js %}
 {{ block.super }}
-<script src="{{ STATIC_URL }}js/eventsApp.js"></script>
-<script src="{{ STATIC_URL }}js/controllers/EventController.js"></script>
+<script src="{{ STATIC_URL }}js/editEventApp.js"></script>
+<script src="{{ STATIC_URL }}js/controllers/EditEventController.js"></script>
 {% endblock js %}

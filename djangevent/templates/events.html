@@ -4,7 +4,7 @@
 {% block content %}
 <div ng-app="EventsApp" ng-cloak>
 
-    <div ng-controller="EventController" ng-init="init()">
+    <div ng-controller="EventsController" ng-init="init()">
 
         <div class="event-list">
             <ul class="nav nav-pills">
@@ -77,5 +77,5 @@
 {{ block.super }}
 <script src="{{ STATIC_URL }}lib/angular/angular-sanitize.js"></script>
 <script src="{{ STATIC_URL }}js/eventsApp.js"></script>
-<script src="{{ STATIC_URL }}js/controllers/EventController.js"></script>
+<script src="{{ STATIC_URL }}js/controllers/EventsController.js"></script>
 {% endblock js %}

@@ -1,6 +1,6 @@
 "use strict";
 
-eventsApp.controller("EventController", function EventController($scope, $http) {
+eventsApp.controller("EventsController", function EventsController($scope, $http) {
     $scope.events = [];
     $scope.currentEvent = null;
 

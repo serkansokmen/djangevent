@@ -61,10 +61,23 @@ DATABASES = {
 
 ########## GENERAL CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#time-zone
-TIME_ZONE = 'America/Los_Angeles'
+TIME_ZONE = 'Europe/Istanbul'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#language-code
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'tr'
+
+# This is defined here as a do-nothing function because we can't import
+# django.utils.translation -- that module depends on the settings.
+ugettext = lambda s: s
+LANGUAGES = (
+    ('tr', ugettext('Turkish')),
+    ('en', ugettext('English')),
+)
+
+LOCALE_PATHS = (
+    abspath(join(DJANGO_ROOT, 'locale')),
+)
+
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#site-id
 SITE_ID = 1
@@ -73,7 +86,7 @@ SITE_ID = 1
 USE_I18N = True
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#use-l10n
-USE_L10N = True
+USE_L10N = False
 ########## END GENERAL CONFIGURATION
 
 
@@ -199,6 +212,7 @@ THIRD_PARTY_APPS = (
 )
 
 LOCAL_APPS = (
+    'apps.events',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps

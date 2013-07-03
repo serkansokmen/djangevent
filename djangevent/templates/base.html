@@ -1,0 +1,40 @@
+{% load i18n %}
+{% load compress %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% trans "Djangular Events" %}{% endblock title %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Djangular Events">
+    <meta name="author" content="">
+
+    {# <link href="{{ STATIC_URL }}img/favicon.ico" rel="icon" type="image/x-icon"> #}
+    {% block css %}
+    {% compress css %}
+    <link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <!--[if gte IE 9]>
+    <style type="text/css">
+        .gradient { filter: none; }
+    </style>
+    <![endif]-->
+    {% endcompress css %}
+    {% endblock css %}
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    <!--[if eq IE 7]>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome-ie7.min.css" rel="stylesheet">
+    <![endif]-->
+</head>
+<body>
+    {% block content %}{% endblock content %}
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.5/angular.min.js"></script>
+
+    {% compress js %}
+    {% block js %}{% endblock js %}
+    {% endcompress %}
+</body>
+</html>

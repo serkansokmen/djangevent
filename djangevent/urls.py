@@ -1,14 +1,32 @@
 from django.contrib import admin
+from django.conf import settings
 from django.conf.urls import patterns, include, url
+from django.views.generic import TemplateView
 
 
-# See: https://docs.djangoproject.com/en/dev/ref/contrib/admin/#hooking-adminsite-instances-into-your-urlconf
 admin.autodiscover()
 
 
 # See: https://docs.djangoproject.com/en/dev/topics/http/urls/
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
     # Admin panel and documentation:
-    url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
+
+    url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
 )
+
+if settings.DEBUG:
+    urlpatterns += patterns(
+        '',
+        (r'^404/$', 'django.views.defaults.page_not_found'),
+        (r'^500/$', 'django.views.defaults.server_error'),
+        (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+        (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
+    )
+
+if 'rosetta' in settings.INSTALLED_APPS:
+    urlpatterns += patterns(
+        '',
+        url(r'^rosetta/', include('rosetta.urls')),
+    )

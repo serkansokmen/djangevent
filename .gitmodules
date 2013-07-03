@@ -1,0 +1,3 @@
+[submodule "djangevent/compile/bootstrap"]
+	path = djangevent/compile/bootstrap
+	url = https://github.com/twitter/bootstrap.git

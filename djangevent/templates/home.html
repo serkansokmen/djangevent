@@ -10,22 +10,33 @@
             </ul>
         </div>
     </div>
-    <div ng-controller="EventController">
-        <img ng-src="{[{ event.imageUrl }]}" alt="{[{ event.name }]}">
-        <h2>{[{ event.name }]}</h2>
+    <div ng-controller="EventController" ng-init="init()">
+        <img ng-src="{[{ currentEvent.imageUrl }]}" alt="{[{ currentEvent.name }]}">
+        <h2>{[{ currentEvent.name }]}</h2>
         <div class="row-fluid">
-            <div class="span">
-                <div><strong>Date:</strong> {[{ event.date }]}</div>
-                <div><strong>Time:</strong> {[{ event.time }]}</div>
+            <div class="span8">
+                <div><strong>Date:</strong> {[{ currentEvent.date }]}</div>
+                <div><strong>Time:</strong> {[{ currentEvent.time }]}</div>
             </div>
             <div class="span4">
                 <address>
                     <strong>Address:</strong> <br>
-                    {[{ event.location.address }]} <br>
-                    {[{ event.location.city }]}, {[{ event.location.province }]}
+                    {[{ currentEvent.location.address }]} <br>
+                    {[{ currentEvent.location.city }]}, {[{ currentEvent.location.province }]}
                 </address>
             </div>
         </div>
+        <hr>
+        <h3>Sessions</h3>
+        <ul class="thumbnails">
+            <li ng-repeat="session in currentEvent.sessions">
+                <div class="row-fluid">
+                    <div class="span9 well">
+                        <h4 class="well-title">{[{ session.name }]}</h4>
+                    </div>
+                </div>
+            </li>
+        </ul>
     </div>
 </div>
 {% endblock content %}

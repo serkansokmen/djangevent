@@ -1,6 +1,13 @@
 from django.db import models
 
 
+class Session(models.Model):
+    name = models.CharField('Name', max_length=50)
+
+    def __unicode__(self):
+        return self.name
+
+
 class Location(models.Model):
     address = models.CharField('Address', max_length=254)
     city = models.CharField('Address', max_length=50)
@@ -16,6 +23,10 @@ class Event(models.Model):
     time = models.TimeField('Time')
     location = models.ForeignKey(Location, verbose_name='Location')
     image = models.ImageField('Image', upload_to="events/%Y/%m/%d/")
+    sessions = models.ManyToManyField(Session)
+
+    def get_image_url(self):
+        return self.image.url
 
     def __unicode__(self):
         return self.name

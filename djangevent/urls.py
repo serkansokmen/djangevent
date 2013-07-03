@@ -15,6 +15,8 @@ urlpatterns = patterns(
 
     url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
 
+    (r'^events/', include('apps.events.urls')),
+
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 )
 

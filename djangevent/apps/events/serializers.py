@@ -5,9 +5,9 @@ from rest_framework import fields
 
 class SessionSerializer(serializers.ModelSerializer):
     creator = serializers.RelatedField(source='creator')
-    level = serializers.RelatedField(source='level')
     voteCount = serializers.RelatedField(source='vote_count')
-    duration = serializers.RelatedField(source='get_duration')
+    level = serializers.RelatedField(source='get_level_display')
+    duration = serializers.RelatedField(source='get_duration_display')
 
     class Meta:
         model = Session
@@ -27,11 +27,14 @@ class EventSerializer(serializers.ModelSerializer):
 
     sessions = SessionSerializer()
     location = LocationSerializer()
-    imageUrl = fields.CharField(source='get_image_url')
-    thumbUrl = fields.CharField(source='get_thumb_url')
+    image = serializers.ImageField(source='image')
+    imageUrl = fields.CharField(source='get_image_url', required=False)
+    thumbUrl = fields.CharField(source='get_thumb_url', required=False)
 
     class Meta:
         model = Event
         fields = (
-            'name', 'date', 'time', 'location',
-            'imageUrl', 'thumbUrl', 'sessions')
+            'name', 'date', 'time',
+            'location',
+            'image', 'imageUrl', 'thumbUrl',
+            'sessions')

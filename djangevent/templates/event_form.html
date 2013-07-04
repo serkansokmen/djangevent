@@ -4,17 +4,32 @@
 
 
 {% block content %}
-    <form method="post" class="form-horizontal" action="" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form|bootstrap }}
-        <div class="form-actions">
-            <button class="btn btn-primary" type="submit">Save</button>
+<div ng-app="EventsApp" ng-cloak>
+
+    <div ng-controller="EditEventController" ng-init="init()">
+
+
+        <div class="row-fluid">
+            <div class="span4">
+                <h2 ng-bind="event.name"></h2>
+            </div>
+            <div class="span8 well">
+                <form name="newEventForm" method="post" class="form-horizontal" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form|bootstrap }}
+                    <div class="form-actions">
+                        <button class="btn btn-primary" ng-disabled="newEventForm.$invalid" type="submit" ng-click="saveEvent(event, newEventForm)">Save</button>
+                    </div>
+                </form>
+            </div>
         </div>
-    </form>
+
+    </div>
+</div>
 {% endblock content %}
 
 {% block js %}
 {{ block.super }}
-<script src="{{ STATIC_URL }}js/editEventApp.js"></script>
+<script src="{{ STATIC_URL }}js/eventsApp.js"></script>
 <script src="{{ STATIC_URL }}js/controllers/EditEventController.js"></script>
 {% endblock js %}

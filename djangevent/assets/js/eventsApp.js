@@ -1,6 +1,6 @@
 'use strict';
 
-var eventsApp = angular.module('EventsApp', ['$strap.directives']);
+var eventsApp = angular.module('EventsApp', ['ui.bootstrap']);
 
 eventsApp.config(function ($interpolateProvider) {
   $interpolateProvider.startSymbol('{[{');

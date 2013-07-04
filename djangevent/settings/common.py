@@ -215,6 +215,7 @@ THIRD_PARTY_APPS = (
 
     'athumb',
     'bootstrapform',
+    'html5',
 )
 
 LOCAL_APPS = (

@@ -8,3 +8,4 @@ Pillow
 djangorestframework
 django-athumb
 django-bootstrap-form
+django-html5

@@ -7,25 +7,22 @@ class Session(models.Model):
 
     DURATIONS = [
         (0, 'Half an hour'),
-        (1, '1 hour'),
+        (1, 'One hour'),
         (2, 'Half a day'),
         (3, 'Full day'),
     ]
     LEVELS = [
-        ('Introductory', 'Introductory'),
-        ('Intermediate', 'Intermediate'),
-        ('Advanced', 'Advanced'),
+        (0, 'Introductory'),
+        (1, 'Intermediate'),
+        (2, 'Advanced'),
     ]
 
     name = models.CharField(u'Name', max_length=50)
     creator = models.ForeignKey(User, verbose_name=u'Creator')
-    duration = models.PositiveIntegerField(u'Duration', choices=DURATIONS)
-    level = models.CharField(u'Level', choices=LEVELS, max_length=50)
+    duration = models.PositiveSmallIntegerField(u'Duration', choices=DURATIONS)
+    level = models.PositiveSmallIntegerField(u'Level', choices=LEVELS, max_length=50)
     abstract = models.TextField(u'Abstract', max_length=2000)
     vote_count = models.IntegerField('Vote count')
-
-    def get_duration(self):
-        return self.get_duration_display()
 
     def __unicode__(self):
         return self.name
@@ -46,7 +43,7 @@ class Event(models.Model):
     time = models.TimeField(u'Time')
     location = models.ForeignKey(Location, verbose_name=u'Location')
     image = ImageWithThumbsField(
-        'Image',
+        u'Image',
         upload_to="events/%Y/%m/%d/",
         thumbs=(
             ('thumb', {'size': (80, 80), 'crop': True}),

@@ -33,24 +33,25 @@
 </head>
 <body>
 
-    <div class="container">
-        <div class="navbar">
-            <div class="navbar-inner">
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="container" style="width: auto;">
+                <a class="brand" href="{% url 'home' %}">Djangevents</a>
                 <ul class="nav">
                     <li>
-                        <a href="{% url 'events' %}">Events</a>
+                        <a href="#/events/">Events</a>
                     </li>
                     <li>
-                        <a href="{% url 'event_form' %}">New Event</a>
+                        <a href="#/events/new">Create Event</a>
                     </li>
                 </ul>
             </div>
         </div>
+    </div>
+    <div class="container">
         {% block content %}{% endblock content %}
     </div>
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.5/angular.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.3.0/ui-bootstrap-tpls.min.js"></script>
 

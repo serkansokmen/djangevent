@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-eventsApp.controller("EditEventController", function EditEventController($scope, $http) {
+eventsApp.controller('EventFormController', function EventFormController($scope, $http) {
     $scope.event = [];
 
     $scope.saveEvent = function (event, newEventForm) {

@@ -1,0 +1,21 @@
+<div>
+    <h1>Events</h1>
+    <hr>
+    <ul class="thumbnails">
+        <li ng-repeat="event in events | orderBy:sortOrder" class="span5">
+            <div class="well hoverwell">
+                <h2>
+                    <a href="#/events/{[{ event.id }]}">{[{ event.name }]}</a>
+                </h2>
+                <div><strong>Date:</strong> {[{ event.date | date:'mediumDate' }]}</div>
+                <div><strong>Time:</strong> {[{ event.time }]}</div>
+                <hr>
+                <address>
+                    <strong>Address:</strong> <br>
+                    {[{ event.location.address }]} <br>
+                    {[{ event.location.city }]}, {[{ event.location.province }]}
+                </address>
+            </div>
+        </li>
+    </ul>
+</div>

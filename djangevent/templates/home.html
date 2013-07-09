@@ -1,5 +1,19 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block content %}
-
+<div ng-app="EventsApp" ng-cloak>
+    <ng-view></ng-view>
+</div>
 {% endblock content %}
+
+{% block js %}
+{{ block.super }}
+<script src="{{ STATIC_URL }}lib/angular/angular-sanitize.js"></script>
+<script src="{{ STATIC_URL }}lib/angular/angular-resource.js"></script>
+<script src="{{ STATIC_URL }}js/eventsApp.js"></script>
+<script src="{{ STATIC_URL }}js/controllers/EventListController.js"></script>
+<script src="{{ STATIC_URL }}js/controllers/EventDetailController.js"></script>
+<script src="{{ STATIC_URL }}js/controllers/EventFormController.js"></script>
+<script src="{{ STATIC_URL }}js/services/EventsData.js"></script>
+{% endblock js %}

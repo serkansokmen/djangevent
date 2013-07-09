@@ -1,0 +1,25 @@
+<div style="padding-left:20px; padding-right:20px;">
+    <div class="container">
+        <h1 ng-hide="editingEvent">New Event</h1>
+        <h1 ng-show="editingEvent">Edit Event</h1>
+        <hr>
+        <form name="editEventForm">
+            <fieldset>
+                <label for="eventName">Event name:</label>
+                <input type="text" id="eventName" required placeholder="Name of your event" ng-model="event.name">
+                <label for="eventDate">Date:</label>
+                <input type="text" id="eventDate" required placeholder="format (mm/dd/yyyy)" ng-model="event.date">
+                <label for="eventTime">Event time:</label>
+                <input type="text" id="eventTime" required placeholder="start and end time" ng-model="event.time">
+                <label for="eventLocation">Location:</label>
+                <input type="text" id="eventLocation" required placeholder="Address of the event" ng-model="event.location">
+                <br>
+                <input type="text" id="eventCity" required placeholder="City" ng-model="event.city">
+                <input type="text" id="eventProvince" required placeholder="Province" ng-model="event.province">
+
+                <label for="eventImageUrl">Image:</label>
+                <input type="text" id="eventImageUrl" required placeholder="URL of the image" ng-model="event.imageUrl">
+            </fieldset>
+        </form>
+    </div>
+</div>

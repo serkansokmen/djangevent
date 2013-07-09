@@ -1,8 +1,8 @@
 'use strict';
 
-eventsApp.controller('EventDetailController', function EventDetailController($scope, eventsData) {
+eventsApp.controller('EventDetailController', function EventDetailController($scope, eventsData, $routeParams) {
 
-    $scope.event = eventsData.getEvent(1);
+    $scope.event = eventsData.getEvent($routeParams.eventId);
 
     $scope.event.then(
         function (event) { console.log(event); },

@@ -4,9 +4,9 @@ eventsApp.factory('eventsData', function ($q, $resource) {
     var resource = $resource('/api/events/:id', {id: '@id'});
 
     return {
-        getEvent: function (id) {
+        getEvent: function (eventId) {
             var deferred = $q.defer();
-            resource.get({id: id},
+            resource.get({id: eventId},
                 function (event) { deferred.resolve(event); },
                 function (response) { deferred.reject(response);}
             );

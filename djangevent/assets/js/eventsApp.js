@@ -17,5 +17,8 @@ var eventsApp = angular.module('EventsApp', ['ngResource'])
             .when('/events/new', {
                 templateUrl: 'static/partials/EventForm.html',
                 controller: 'EventFormController'
+            })
+            .otherwise({
+                redirectTo: '/events'
             });
     });
